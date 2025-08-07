@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropbtn {
+  background-color: #4CAF50;
+  align-self: center;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  align-self: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: auto;
+  align-content: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 14px 20px;
+  text-decoration: none;
+  align-content: center;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	align-items: center;
+	}
+.center {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.show {
+	display:block;
+	align-items: center;
+}
+</style>
+</head>
+<body>
+
+<h1>IMAGE AI</h1>
+<h3>Image Uploaded Successfully !! </h3>
+
+<style>  
+    h1{
+    	color:green;
+    	text-align: center;
+    }
+    h3{
+    	text-align: center;
+    }
+    img {
+        border: 1px solid #ddd;
+        align-items: center;
+        border-radius: 4px;
+        padding: 5px;
+        width: 300px;
+        hegight: 400px;
+        object-fit: contain;
+    }
+    div {
+            margin-top:10px;
+            text-align: center;
+        }
+</style>
+ 
+<div class="centre">
+<div class="dropdown">
+  <button id="myBtn" class="dropbtn" >Download</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a download="extracted.png" href="{{png_file}}" title="PNG File">
+    	<img alt="Extracted PNG" >
+	</a>
+
+    <a download="output.psd" href="{{psd_file}}" title="PSD File">
+    	<img alt="PSD File" src="{{psd_file}}">
+	</a>
+
+  </div>
+
+</div>
+<button id="backBtn" class="myDropdown" onclick="goBack()">Go Back</button>
+</div>
+<script>
+// Get the button, and when the user clicks on it, execute myFunction
+document.getElementById("myBtn").onclick = function() {myFunction()};
+
+/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+document.getElementById("backBtn").onclick = function() {goBack()};
+function goBack() {
+  window.history.back()
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<style>
+  h1{
+    color:royalblue;
+    text-align: center;
+  }
+  p{
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+  h3{
+    color:red;
+    text-align: center;
+  }
+  img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+    hegight: 500px;
+    object-fit: contain;
+    align-items: center;
+  }
+  div {
+    text-align: center;
+    margin-top:10px;
+  }
+.dropbtn {
+  background-color: #4CAF50;
+  align-self: center;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  align-self: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: auto;
+  align-content: center;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 14px 20px;
+  text-decoration: none;
+  align-content: center;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	align-items: center;
+	}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.prog-wrap {
+  position: relative;
+  border: 1px solid #acb2d8;
+  background: rgba(255, 255, 255, 0.3);
+}
+.prog-wrap { height: 35px; }
+.show {
+	display:block;
+	align-items: center;
+}
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+/* (X) DOES NOT MATTER */
+/* TEST CONTROLS */
+#demoA { margin-top: 10px; }
+#demoA input, #demoA button { padding: 10px; }
+
+/* PAGE & BODY */
+body {
+  display: flex;
+  align-items: center; justify-content: center;
+  min-height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1519750783826-e2420f4d687f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzU0MzQ1OA&ixlib=rb-1.2.1&q=85);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* WIDGET */
+.widget-wrap {
+  min-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* SVG */
+
+
+/* FOOTER */
+#code-boxx {
+  font-weight: 600;
+  margin-top: 50px;
+}
+#code-boxx a {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  background: #b90a0a;
+  color: #fff;
+}
+#code-boxx , h1 { text-align: center; }
+
+</style>
+<div id="demoA">
+<div class="centre">
+<h1>IMAGE AI</h1></br>
+<p><h3>Image Uploaded Successfully !! </h3></p>
+
+
+<div class="dropdown">
+  <button id="myBtn">Download</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a download="{{png_file}}" href="{{png_file}}" title="Extracted PNG">
+    	<img alt="Extracted PNG" >
+	 </a>
+
+    <a download="{{psd_file}}" href="{{psd_file}}" title="PSD File">
+    	<img alt="PSD File">
+	</a>
+
+  </div>
+
+</div>
+<a href="/"><input style="width:70px;height:39px;font-size:12px" type="button" id="backBtn" value="Go Back"></input></a>
+<!--<button id="backBtn" class="myDropdown" onclick="goBack()">Go Back</button>--!>
+</div>
+</div>
+</html>
+<script>
+  function progbar (instance) {
+  // (A) WRAPPER CSS 
+  instance.classList.add("prog-wrap");
+
+  // (D) RETURN RESULT
+  return instance;
+}
+// Get the button, and when the user clicks on it, execute myFunction
+document.getElementById("myBtn").onclick = function() {myFunction()};
+
+/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+document.getElementById("backBtn").onclick = function() {goBack()};
+function goBack() {
+  window.history.back()
+}
+
+</script>
+
+
+

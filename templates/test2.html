@@ -1,0 +1,179 @@
+<!doctype html>
+<style>
+	h1{
+        color:royalblue;
+        text-align: center;
+    }
+    h2{
+        text-align: center;
+    }
+    h3{
+        color:red;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+    img {
+        border: 1px solid #ddd;
+        border-radius: 1px;
+        padding: 1px;
+        width: 300px;
+        height: 700px;
+        object-fit: contain;
+        align-items: center;
+    }
+    div {
+        text-align: center;
+        margin-top:10px;
+    }
+		/* (A) PROGRESS BAR WRAPPER */
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+.prog-wrap {
+  position: relative;
+  border: 1px solid #acb2d8;
+  background: rgba(255, 255, 255, 0.3);
+}
+.prog-wrap, .prog-bar, .prog-percent { height: 30px; }
+
+/* (B) PROGRESS BAR & PERCENTAGE */
+.prog-bar, .prog-percent{
+  position: absolute;
+  display: inline-block ;
+  top: 0; left: 0;
+
+}
+
+/* (C) PERCENTAGE INDICATOR */
+.prog-percent {
+  position : relative;
+  display: flex;
+  align-items: center; justify-content: center;
+  width: 100%;
+  z-index: 1;
+}
+
+/* (D) PROGRESS BAR */
+.prog-bar {
+  width: 0;
+  background: rgba(255, 47, 47, 0.5);
+  transition: width 30s;
+}
+
+/* (X) DOES NOT MATTER */
+/* TEST CONTROLS */
+#demoA { margin-top: 10px; }
+#demoA input, #demoA button { padding: 1px; }
+
+/* PAGE & BODY */
+body {
+  display: flex;
+  align-items: center; justify-content: center;
+  min-height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1519750783826-e2420f4d687f?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MzU0MzQ1OA&ixlib=rb-1.2.1&q=85);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* WIDGET */
+.widget-wrap {
+  min-width: 600px;
+  padding: 50px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* SVG */
+
+
+/* FOOTER */
+#code-boxx {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+#code-boxx a {
+  display: inline-block;
+  padding: 1px;
+  text-decoration: none;
+  background: #b90a0a;
+  color: #fff;
+}
+#code-boxx , h1 { text-align: center; }
+</style>
+
+<div class="widget-wrap">
+  <div id="load"></div>
+<h1>IMAGE AI</h1>
+
+<h2>Select a file to upload !</h2>
+
+</body>
+<form id='myForm' method="post" action="/upload_image" enctype="multipart/form-data">
+    <dl>
+        <p>
+            <input type="file" name="file" autocomplete="off" required>
+            
+        </p>
+    </dl>
+    <div id="demoA">
+    
+    <button type= "submit"  id="demoC" value="100">Submit</button>
+  </div>
+</form>
+<p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <h3>{{ message }}</h3>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</p>
+  <div id="demo"></div>
+  
+
+
+</div>
+</html>
+
+<script type="text/javascript">
+function progbar (instance) {
+  // (A) WRAPPER CSS 
+  instance.classList.add("prog-wrap");
+
+  // (B) CREATE PROGRESS BAR
+  instance.innerHTML =
+    `<div class="prog-bar"></div>
+     <div class="prog-percent">0%</div>`;
+  instance.hbar = instance.querySelector(".prog-bar");
+  instance.hpercent = instance.querySelector(".prog-percent");
+
+  // (C) SET PROGRESS
+  instance.set = (percent) => {
+    instance.hbar.style.width = percent + "%";
+    instance.hpercent.innerHTML = percent + "%";
+  };
+
+  // (D) RETURN RESULT
+  return instance;
+}
+
+// (E) ATTACH PROGRESS BAR
+window.addEventListener("load", () => {
+  // (E1) PROGRESS BAR
+  let demo = progbar(document.getElementById("demo"));
+  demo.set(0);
+  
+  // (E2) SET PERCENTAGE
+  document.getElementById("demoC").onclick = () => {
+    demo.set(document.getElementById("demoC").value);
+  };
+});
+</script>
