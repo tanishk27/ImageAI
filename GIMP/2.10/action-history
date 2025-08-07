@@ -1,0 +1,12 @@
+# GIMP action-history
+
+(history-item "file-quit" 2)
+(history-item "plug-in-script-fu-console" 4)
+(history-item "view-zoom-in" 3)
+(history-item "layers-merge-layers" 1)
+(history-item "tools-fuzzy-select" 0)
+(history-item "layers-edit-attributes" 0)
+(history-item "filters-gaussian-blur" 0)
+(history-item "plug-in-script-fu-server" 1)
+
+# end of action-history
