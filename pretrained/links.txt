@@ -1,0 +1,2 @@
+Base U2net Model : https://drive.google.com/file/d/1qneBvUbKU8TeB953tGkatkP-X3RrsHm3/view?usp=sharing
+Trained U2net Model 24k images : https://drive.google.com/file/d/1jrBQpLLUwINtkYLS6zWgGw_DMAmHTH0G/view?usp=sharing
